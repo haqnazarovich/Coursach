@@ -1,0 +1,21 @@
+@page "/chart"
+@inject IJSRuntime JS;
+
+@using Teploobmen.Models;
+
+<canvas id="myChart"></canvas>
+
+@code {
+
+    ChartData graf = new ChartData();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        string asaa = graf.SerealizeData();
+        await JS.InvokeVoidAsync("inizializeChart", asaa);
+    }
+
+
+
+}

@@ -1,0 +1,70 @@
+﻿@page "/сalculation"
+
+<h1>Расчет</h1>
+<p>
+    <b>Средняя действительная скорость потока (м/с):</b>
+    <input @bind="calc.w" id="inW"  type="number" placeholder="W" >
+</p>
+<p>
+    <b>Температура потока (°С):</b>
+    <input @bind="calc.tB" id="inTB" type="number" placeholder="tB" max="1000" min="0" step="50" >
+</p>
+<p>
+    <b>Диаметр трубы (м):</b>
+    <input @bind="calc.d" id="inD" type="number" placeholder="d" step="0.001" >
+
+</p>
+<p><b>@calc.vlpStr()</b></p>
+<p>Число для потока <b>𝑅𝑒= @calc.CalcRe()</b></p>
+<p>Для коридорного пучка труб, <b>𝑁𝑢= @calc.CalcNu()</b></p>
+<p>Коэффициент теплоотдачи конвекцией третьего и последующих рядов труб составит,<b> 𝛼3p= @calc.CalcA3()</b></p>
+<p><b>Средний коэффициент теплоотдачи для всего пучка в целом</b></p>
+<p>Для шахматного пучка труб,  <b>𝑁𝑢=@calc.CalcNuw()</b></p>
+<p>Коэффициент теплоотдачи третьего и последующих рядов труб составит, <b>𝛼3p=@calc.CalcA3w() </b></p>
+@code {
+    Calculatoin calc = new Calculatoin();
+    
+    //private int w;
+    //private int tB;
+    //private double d;
+
+    //List<int> tList = new List<int>() { 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000 };
+    //List<double> vList = new List<double>() { 13.3, 18.2, 23.1, 28.95, 34.8, 24.45, 32.6, 48.9, 63, 39.95, 53.26666667, 79.9, 96.8, 57.9, 71, 124.05, 134.8, 144.95, 155.1, 166.1, 177.1 };
+    //List<double> lList = new List<double>() { 2.44, 2.82, 3.21, 3.57, 3.93, 2.285, 3.046666667, 4.57, 5.21, 2.8575, 3.81, 5.715, 6.22, 3.35, 3.66, 5.865, 7.18, 7.405, 7.63, 7.85, 8.07 };
+    //List<double> prList = new List<double>() { 0.71, 0.7, 0.69, 0.68, 0.68, 0.34, 0.453333333, 0.68, 0.68, 0.345, 0.46, 0.69, 0.7, 0.3525, 0.3575, 0.53875, 0.71, 0.715, 0.72, 0.72, 0.72 };
+
+
+
+    //private double CalcRe()
+    //{
+    //    return Math.Round(w*d/(vList[tList.IndexOf(tB)] * Math.Pow(10, -6)));
+    //}
+    //private double CalcNu()
+    //{
+    //    return Math.Round(0.21 *Math.Pow(CalcRe(),0.65),1);
+    //}
+    //private double CalcA3()
+    //{
+    //    return Math.Round(CalcNu()*lList[tList.IndexOf(tB)]*Math.Pow(10,-2)/d,1);
+    //}
+    //private double CalcNuw()
+    //{
+    //    return Math.Round(0.37 * Math.Pow(CalcRe(), 0.6), 1);
+    //}
+    //private double CalcA3w()
+    //{
+    //    return Math.Round(CalcNuw() * lList[tList.IndexOf(tB)] * Math.Pow(10, -2) / d, 1);
+    //}
+    //private double Procent()
+    //{
+    //    return Math.Round((CalcA3w() / CalcA3()) * 100) - 100;
+    //}
+
+    //private int a=10;
+    //List<int> aList = new List<int>() { 90, 80, 70, 60, 50, 40, 30, 20, 10 };
+    //List<double> eList = new List<double> { 1, 1, 0.98, 0.94, 0.88, 0.78, 0.67, 0.52, 0.42 };
+    //private double CalcA()
+    //{
+    //    return Math.Round(CalcA3w() * eList[aList.IndexOf(a)], 1);
+    //}
+}
